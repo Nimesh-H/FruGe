@@ -1,0 +1,25 @@
+<div class = "body">
+    <div class="sign-up-form">
+
+        <div class = "waitingMessage" id = "waitingMessageId"> 
+            Please wait...
+        </div>
+
+        <form id = "form">
+            <h1>SIGN UP</h1> 
+            <div class="logo"></div>
+            <input type="text" required #fName class="input-box" id="firstName" placeholder="Enter your First Name here">
+            <input type="text" required #lName class="input-box" id="lastName" placeholder="Enter your Last Name here" >
+            <input type="text" required #uName class="input-box" id="userName" placeholder="Enter your Username here">
+            <input type="email" required #email class="input-box" id="email" placeholder="Enter your E-mail here">
+            <input type="password" required #pass class="password-box" id="password" placeholder="Enter your Password here">
+
+            <p><span><input type="checkbox" id = "checkTerms"></span> I agree to the <a (click) = "termsDes()" class = "termsText">Terms and Conditions </a> </p>
+            <button type="button" value="Submit" class="sign-btn" (click) = "register(fName,lName,uName,email,pass)"><span>Sign up</span></button> 
+
+            <hr>
+
+            <p>Do you already have an account? <a href="/login">Log in</a></p>
+        </form>
+    </div>
+</div>

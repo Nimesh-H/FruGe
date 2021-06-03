@@ -1,0 +1,104 @@
+<div class = "body" id = "bodyId">
+
+  <!----------------------------------------------------- Login Option ---------------------------------------------->
+
+  <div class = "loginForm">
+    <form id = "form">
+      <div class = "logo"></div>
+
+      <div class = "loginText">
+        <h1> LOG IN</h1>
+      </div>
+        
+      <div class = "username">
+        <input type="text" required #uName name="username" placeholder= "Username">
+      </div>
+
+      <div class = "password">
+        <input type="password" required #password name = "password" placeholder="Password">
+      </div>
+        
+      <input type="button" value="LOG IN" class = "loginButton" (click) = "loginAction(uName,password)">
+        
+      <div class = "forgotPasswrdText">
+        <a (click) = "loadResetUI()"> <h3>FORGOT PASSWORD?</h3> </a>
+      </div>
+
+      <div class = "createAccountText">
+        <h5 style="text-align: center;">Do not have an account?</h5>
+        <a href = "/register"> <h3>CREATE AN ACCOUNT</h3> </a> 
+      </div>
+    </form>
+
+    <div class = "waitingMessage" id = "waitingMessageId"> 
+      Please wait...
+    </div>
+  </div>
+
+  <!--------------------------------------------- Reset Password Option -------------------------------------------------------------->
+
+  <div class = "loginForm2">
+
+    <form id = "form2">
+      
+      <a class="closebtn" (click)="loadLogin()"><img src = "assets/closeBlack.png" width="40px" height="40px" style="cursor: pointer; background-color: rgba(239, 243, 247, 0.644);"></a>
+
+      <div class = "logo"></div>
+
+      <div class = "loginText2">
+        <h1> Reset Password</h1>
+      </div>
+        
+      <div class = "username">
+        <input type="text" required #resetuName name="username" placeholder= "Username">
+      </div>
+
+      <div class = "email">
+        <input type="text" required #resetEmail name="username" placeholder= "Email">
+      </div>
+
+      <div class = "password">
+        <input type="password" required #resetPassword name = "password" placeholder="New Password">
+      </div>
+        
+      <input type="button" value="RESET PASSWORD" class = "resetButton" (click) = "reset(resetuName, resetEmail, resetPassword)">
+        
+    </form>
+
+    <div class = "waitingMessage" id = "waitingMessageId"> 
+      Please wait...
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class = "mainText">
+      <h1>COME, MAKE YOUR LIFE EASY...</h1>
+    </div>
+
+    <a href = "/aboutus"><input type="button" value="ABOUT US" class = "aboutUsButton"> </a>
+    <a href = "/guestpage"><input type="button" value="CHECK PRICE" class = "checkPriceButton"> </a>
+
+</div>

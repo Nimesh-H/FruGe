@@ -1,0 +1,254 @@
+*{
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.waitingMessage{
+    color: white;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 180px;
+    z-index: 1;
+    opacity: 0;
+}
+
+
+.body {
+    box-sizing: content-box;
+    width: 1520px;
+    height: 730px;
+    background-image: url("src/assets/loginImage11.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.loginForm {
+    background-color: #373d3b;;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    box-sizing: content-box;
+    width: 420px;
+    height: 730px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 1100px ;
+    opacity: 80%;
+}
+
+
+.loginForm2 {
+    background-color: #373d3b;;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    box-sizing: content-box;
+    width: 420px;
+    height: 730px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 1100px ;
+    visibility: hidden;
+}
+
+
+.logo{
+    background-image: url("src/assets/logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: content-box;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50px;
+    left: 170px;
+}
+
+
+.loginText{
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 160px;
+    left: 165px;
+}
+
+
+.loginText2{
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 160px;
+    left: 105px;
+}
+
+
+.username{
+    margin-top: 260px;
+    margin-left:90px;
+}
+
+.email{
+    margin-top: 20px;
+    margin-left:90px;
+}
+
+
+.password{
+    margin-top: 20px;
+    margin-left:90px;
+}
+
+
+input {
+    width: 240px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+
+input::placeholder {
+    text-align: center;
+}
+
+
+.loginButton {
+    position: absolute;
+    top: 400px;
+    left: 90px;
+    background-color: #0ac46a;
+    font-weight: 900;
+    color: white;
+    width: 265px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.loginButton:hover {
+    background-color:#00ff84;
+    transition: 0.5s;
+}
+
+
+.resetButton {
+    position: absolute;
+    top: 500px;
+    left: 90px;
+    background-color: #0ac46a;
+    font-weight: 900;
+    color: white;
+    width: 265px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.resetButton:hover {
+    background-color:#00ff84;
+    transition: 0.5s;
+}
+
+
+.aboutUsButton {
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 50px;
+    background-color: rgb(22, 22, 22);
+    opacity: 0.8;
+    font-weight: 900;
+    color: white;
+    width: 230px;
+    height: 50px;
+    border-radius : 10px;
+    border: solid;
+    border-color:#0ac46a;
+    cursor: pointer;   
+}
+
+
+.aboutUsButton:hover {
+    background-color: #0ac46a;
+    transition: 0.5s;
+}
+
+
+.checkPriceButton {
+    position: absolute;
+    margin-top: 350px;
+    margin-left: -50px;
+    background-color: rgb(22, 22, 22);
+    opacity: 0.8;
+    font-weight: 900;
+    color: white;
+    width: 160px;
+    height: 50px;
+    border-radius : 10px;
+    border: solid;
+    border-color: #0ac46a;
+    cursor: pointer;
+}
+
+
+.checkPriceButton:hover {
+    background-color: #0ac46a;
+    transition: 0.5s;
+}
+
+
+.forgotPasswrdText{
+    color: white;
+    position: absolute;
+    font-weight: 900;
+    top: 460px;
+    left: 130px;
+    cursor: pointer;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.createAccountText{
+    color: white;
+    position: absolute;
+    font-weight: 900;
+    top: 565px;
+    left: 125px;
+}
+
+
+.mainText{
+    color: white;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 20px;
+    font-size: 28px;
+    
+}
+
+
+.aboutUsButton{
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 50px;
+    width: 150px;
+}
+
+
+.checkPriceButton{
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 230px;
+    width: 150px;
+}

@@ -1,0 +1,326 @@
+<!--------------------------------------------- Page Startup ----------------------------------------------------------------->
+
+<div id = "page">
+
+  <div id = "openMessage" class = "welcomeMessage"> 
+    <img src="assets/logo.png" width="250px" height="250px" class = "openLogo" >
+    <a href = "/vegetables"><img src = "assets/vegetables.jpg" width="500px" height="300px" class = "imageLeft"></a>
+    <a href = "/fruits"><img src = "assets/fruits.jpg" width="500px" height="300px" class = "imageRight"></a>
+    <img src = "assets/closeWhite.png" width="40px" height="40px" (click) = "closeMessage()" class = "closeMessage">  
+
+    <p class = "description" id = "desTopic"> Welcome to FruGe  </p>
+    <p class = "des1"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> <strong> View predicted price updates for 20 items (<a href = "vegetables" style="color: rgb(59, 163, 56); text-decoration: none;">14 Vegetables </a> & <a href = "fruits" style="color: rgb(59, 163, 56); text-decoration: none;">6 Fruits</a>)</strong></p>
+    <p class = "des2"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> <strong> Price updates are available daily & weekly</strong></p>
+    <p class = "des3"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> <strong> View the <a href = "/lowest" style="color: rgb(59, 163, 56); text-decoration: none;">cheapest items </a></strong></p> 
+  </div>
+
+
+  <!--------------------------------------------- End of page startup----------------------------------------------------------------->
+
+
+  <!--------------------------------------------- Start of Nav Pane ----------------------------------------------------------------->
+
+  <div id = "body">
+
+    <span style="font-size:30px;cursor:pointer; color: white;" (click)="openNav()">&#9776; </span>
+
+    <div class = "upperBar">
+      <h2 class="topic">Dashboard</h2>
+      <div class = "search">
+        <input type = "text" #txt class = "searchbar">
+        <button type="submit" (click) = "search(txt)" class = "submitButton">SEARCH ITEMS <img src = "assets/search.jpg" width="30px" height="27px" class = "submitImage" >  </button>
+      </div>
+
+        <a  class = "logged" (click) = "logout()">Log out </a>
+
+        <div class = "loggedIcon">
+          <h2 style="color: white;" id = "userIcon"> G </h2>
+          <span class="tooltiptext" id ="tooltip">Tooltip text</span>
+        </div>
+    </div>
+
+    
+    <div id="mySidenav" class="sidenav">
+      <img src="assets/logo.png" class = "logo" width="210px" height="210px">
+      <a class="closebtn" (click)="closeNav()"><img src = "assets/closeBlack.png" width="40px" height="40px"></a>
+      <div class = "sideNavlinks">
+        <a href = "/home">Dashboard <img src = "assets/dashboardIcon.png" width="40px" height="40px" class = icons></a>
+        <a href = "/fruits" >Fruits <img src = "assets/bananas.png" width="45px" height="30px" class = icons></a>
+        <a href = "/vegetables">Vegetables<img src = "assets/cabbage.png" width="40px" height="30px" class = icons></a>
+        <a (click) = "loginNav()">Login <img src = "assets/loginIcon.png" width="45px" height="45px" class = icons></a>
+        <a (click) = "signupNav()">Sign Up <img src = "assets/signupIcon.png" width="40px" height="40px" class = icons></a>
+        <a href="/aboutus">About Us <img src = "assets/aboutusIcon.png" width="40px" height="40px" class = icons></a>
+      </div>
+    </div>
+
+    <!---------------------------------------------End of Nav Pane ----------------------------------------------------------------->
+
+
+    <!--------------------------------------------- Start of Content for body ------------------------------------------------------->
+
+
+    <div class="mySlides">
+      <div class = "imgslide1" id = "slide1">  </div>
+      <div class = "imgslide2" id = "slide2"></div>
+      <div class = "imgslide3" id = "slide3"></div>
+      <div class = "imgslide4" id = "slide4"></div>
+    </div>
+
+    <div class = "allPrices">
+      
+      <span class="border1"> </span>
+      <h2 class= "topic2"  id = "subTopic"> INFO NOT AVAILABLE </h2>
+      <span class="border2"> </span>
+
+      <a href = "/vegetables#cardSet1" style="color: black;">
+        <div class="item1" id = "zoom">
+          <img src="assets/Items/beans.png" alt="Beans" class="image">
+          <div class="overlay">
+            <div class="text">Beans <br><br> </div>
+            <span id = "beans" class = "price">  Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet1" style="color: black;">
+        <div class = item2 id = "zoom">
+          <img src="assets/Items/carrot.png" alt="Carrot" class="image">
+          <div class="overlay">
+            <div class="text">Carrot <br><br>  </div>
+            <span id = "carrot" class = "price"> Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet1" style="color: black;">
+        <div class = item3 id = "zoom">
+          <img src="assets/Items/leeks.png" alt="Leeks" class="image">
+          <div class="overlay">
+            <div class="text">Leeks <br><br> </div>
+              <span id = "leeks" class = "price">  Not Available   </span> 
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet5" style="color: black;">
+        <div class = item4 id = "zoom">
+          <img src="assets/Items/potato1.png" alt="Potato" class="image">
+          <div class="overlay">
+            <div class="text">Potato <br><br> </div>
+            <span id = "potato" class = "price">  Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet2" style="color: black;">
+        <div class = item5 id = "zoom">
+          <img src="assets/Items/knolkhol.jpg" alt="Knolkhol" class="image">
+          <div class="overlay">  
+            <div class="text"> Knolkhol <br><br></div>
+            <span id = "knolkhol" class = "price">  Not Available  </span>
+          </div>
+        </div> 
+      </a>
+
+      <a href = "/vegetables#cardSet2" style="color: black;">
+        <div class = item6 id = "zoom">
+          <img src="assets/Items/cabbage1.png" alt="Cabbage" class="image">
+          <div class="overlay">
+            <div class="text">Cabbage <br><br></div>
+            <span id = "cabbage" class = "price">  Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet3" style="color: black;">
+        <div class = item7 id = "zoom">
+          <img src="assets/Items/tomato1.png" alt="Tomato" class="image">
+          <div class="overlay">
+            <div class="text">Tomato <br><br> </div>
+            <span id = "tomato" class = "price">  Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet3" style="color: black;">
+        <div class = item8 id = "zoom">
+          <img src="assets/Items/ladiesfingers1.png" alt="Ladies Fingers" class="image">
+          <div class="overlay">
+            <div class="text">Ladies Fingers <br><br></div>
+            <span id = "ladiesfingers" class = "price">  Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet3" style="color: black;">
+        <div class = item9 id = "zoom">
+          <img src="assets/Items/brinjals1.png" alt="Brinjals" class="image">
+          <div class="overlay">
+            <div class="text">Brinjals <br><br> </div>
+            <span id = "brinjals" class = "price"> Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet4" style="color: black;">
+        <div class = item10 id = "zoom">
+          <img src="assets/Items/pumpkin.png" alt="Pumpkin" class="image">
+          <div class="overlay">
+            <div class="text">Pumpkin <br><br></div>
+            <span id = "pumpkin" class = "price">  Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet4" style="color: black;">
+        <div class = item11 id = "zoom">
+          <img src="assets/Items/cucumber.png" alt="Cucumber" class="image">
+          <div class="overlay">
+            <div class="text">Cucumber <br><br></div>
+            <span id = "cucumber" class = "price">  Not Available </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet4" style="color: black;">
+        <div class = item12 id = "zoom">
+          <img src="assets/Items/bittergourd1.png" alt="Bitter Gourd" class="image">
+          <div class="overlay">
+            <div class="text">Bitter Gourd <br><br></div>
+            <span id = "bittergourd" class = "price">  Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet5" style="color: black;">
+        <div class = item13 id = "zoom">
+          <img src="assets/Items/greenchilies.jpg" alt="Green Chilies" class="image">
+          <div class="overlay">
+            <div class="text">Green Chilies <br><br> </div>
+            <span id = "greenchilies" class = "price">  Not Available   </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/vegetables#cardSet2" style="color: black;">
+        <div class = item14 id = "zoom">
+          <img src="assets/Items/beetroot1.png" alt="Beet Root" class="image">
+          <div class="overlay">
+            <div class="text">Beet Root <br><br> </div>
+            <span id = "beetroot" class = "price"> Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/fruits#card1" style="color: black;">
+        <div class = item15 id = "zoom">
+          <img src="assets/Items/banana.jpg" alt="Banana" class="image">
+          <div class="overlay">
+            <div class="text">Banana <br><br></div>
+            <span id = "banana" class = "price"> Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/fruits#card5" style="color: black;">
+        <div class = item16 id = "zoom">
+          <img src="assets/Items/lime.jpg" alt="Lime" class="image">
+          <div class="overlay">
+            <div class="text">Lime <br><br></div>
+            <span id = "lime" class = "price">  Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/fruits#card2" style="color: black;">
+        <div class = item17 id = "zoom">
+          <img src="assets/Items/papaya.png" alt="Papaya" class="image">
+          <div class="overlay">
+            <div class="text">Papaya <br><br></div>
+            <span id = "papaya" class = "price"> Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/fruits#card6" style="color: black;">
+        <div class = item18 id = "zoom">
+          <img src="assets/Items/pineapple.jpg" alt="Pineapple" class="image">
+          <div class="overlay">
+            <div class="text">Pineapple <br><br></div>
+            <span id = "pineapple" class = "price">  Not Available  </span>
+          </div>
+        </div>
+      </a>
+
+      <a href = "/fruits#card4" style="color: black;">
+        <div class = item19 id = "zoom">
+          <img src="assets/Items/mango.jpg" alt="Mango" class="image">
+          <div class="overlay">
+            <div class="text">Mango <br><br> </div>
+            <span id = "mango" class = "price"> Not Available  </span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="/fruits#card3" style="color: black;">
+        <div class = item20 id = "zoom">
+          <img src="assets/Items/avocado.jpg" alt="Avocado" class="image">
+          <div class="overlay">
+            <div class="text">Avocado <br><br> </div>
+            <span id = "avocado" class = "price"> Not Available </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!--------------------------------------------- End of Content for body ------------------------------------------------------->
+
+
+    <!--------------------------------------------------- Footer Section ------------------------------------------------------------>
+
+    <footer class="footer"> 
+
+      <button class = "backToTop" (click) = "topFunction()"> Back to top</button>
+      
+      <div class = "middleSection">
+        <img src="assets/logo.png" class = "footerLogo" width="200px" height="200px">
+        <div class = "socialLinks">
+          <a href="https://www.google.com/gmail/" target="_blank"><img src = "assets\gmail.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.facebook.com/" target="_blank"><img src = "assets\facebook.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.whatsapp.com/?lang=en" target="_blank"><img src = "assets\whatsapp.png" style="width: 30px;"></a>&nbsp;
+          <a href="https://www.instagram.com/accounts/login/" target="_blank"><img src = "assets\instagram.png" style="width: 30px;"></a>
+        </div>
+      </div>
+
+      <div class="accessLinks">
+        <h3>Get full access </h3>
+        <a (click) = "signupNav()"> <img src = "assets\signupIcon.png" style="width: 30px; height: 35px; color: black; "> &nbsp;Sign up </a> <br><br>
+        <a (click) = "loginNav()"> <img src = "assets\loginIcon.png" style="width: 30px; height: 35px;  color: black;"> &nbsp;Login  </a> 
+      </div>
+      
+      <div class="categories">
+        <h3> Categories </h3> 
+        <a href="/home">  <img src = "assets\dashboard.png" style="width: 30px; height: 35px;"> &nbsp;Dashboard </a> <br><br>
+        <a href="/vegetables">  <img src = "assets\vegetables.png" style="width: 30px; height: 35px;"> &nbsp;Vegetables  </a> <br><br>
+        <a href="/fruits">  <img src = "assets\fruits.png" style="width: 30px; height: 35px;"> &nbsp;Fruits  </a> <br><br>
+        <a href="/aboutus">   <img src = "assets\aboutus.png" style="width: 30px; height: 35px;"> &nbsp;About Us </a> 
+      </div>
+
+      <div class = "rightSection"> 
+        <h3 style="margin-left: 100px;">Contact us for any clarifications</h3>  
+          <div class = "contactLinks">
+            <img src = "assets\phone.png" style="width: 30px; height: 35px;"> &nbsp;&nbsp; <span style="font-weight: 500;">+94718914572 </span> <br><br>
+            <img src = "assets\address.png" style="width: 30px; height: 30px; margin-left:70px;"> &nbsp;&nbsp; <span style="font-weight: 500;">No. 57, Ramakrishna Rd,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 06 </span> <br><br>
+            <a href="https://www.google.com/maps/dir/6.9041507,79.925171/iit/@6.8866969,79.8578942,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae25ba4e617b3d9:0xd5a3b0418f1cf497!2m2!1d79.8598505!2d6.8652715" target="_blank"><img src = "assets\maps.png" style="width: 30px; margin-left:35px;"> &nbsp;&nbsp;Get Map Directions </a>
+          </div>
+      </div>
+
+      <div class="copyright" style="background-color:#10110f9d ;">
+          © 2021 Copyright:
+          <a href="aboutus" style="color: white; text-decoration: none;">Team Sixers</a>
+      </div>
+      
+    </footer>
+  </div>
+</div>

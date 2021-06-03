@@ -1,0 +1,303 @@
+<!--------------------------------------------- Page Startup ----------------------------------------------------------------->
+
+<div id = "page">
+
+  <div id = "openMessage" class = "welcomeMessage"> 
+    <img src="logo.png" width="250px" height="250px" class = "openLogo" >
+    <img src = "assets/vegetables.jpg" width="500px" height="300px" class = "imageLeft"> 
+    <img src = "assets/fruits.jpg" width="500px" height="300px" class = "imageRight"> 
+    <img src = "assets/closeWhite.png" width="40px" height="40px" (click) = "closeMessage()" class = "closeMessage">  
+  
+    <p class = "description"> Welcome to FruGe  </p>
+      
+      <p class = "des1"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> View predicted price for <strong>20 items </strong> including <strong>14  vegetables </strong>& <strong>6 fruit </strong> items  </p>
+      <p class = "des2"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> Predicted prices are updated <strong>weekly</strong>  </p>
+      <p class = "des3"> <img src = "assets/bullet.png" style="width: 20px; height: 20px;"> <strong> Please<a href = "/register" style="color: rgb(59, 163, 56); text-decoration: none;"> sign up </a> for full access!!! </strong></p> 
+  </div>
+
+  <!--------------------------------------------- End of page startup----------------------------------------------------------------->
+
+
+  <!--------------------------------------------- Start of Nav Pane ----------------------------------------------------------------->
+
+  <div id = "body">
+
+    <span style="font-size:30px;cursor:pointer; color: white;" (click)="openNav()">&#9776; </span>
+
+    <div class = "upperBar">
+      <h2 class="topic">FruGe - Guest Page</h2>
+      <a href = "/login" class = "logged">Log In</a>
+      <a href = "/register" class = "signed">Sign Up</a>
+
+      <div class = "loggedIcon">
+        <h2 style="color: white;" id = "userIcon"> G </h2>
+        <span class="tooltiptext" id ="tooltip">Logged in as Guest</span>
+      </div>
+
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <img src="assets/logo.png" class = "logo" width="210px" height="210px">
+      <a class="closebtn" (click)="closeNav()"><img src = "assets/closeBlack.png" width="40px" height="40px"></a>
+      <div class = "sideNavlinks">
+        <a (click) = "registerAlert()">Dashboard <img src = "assets/dashboardIcon.png" width="40px" height="40px" class = icons></a>
+        <a (click) = "registerAlert()" >Fruits <img src = "assets/bananas.png" width="45px" height="30px" class = icons></a>
+        <a (click) = "registerAlert()">Vegetables<img src = "assets/cabbage.png" width="40px" height="30px" class = icons></a>
+        <a href ="/login">Login <img src = "assets/loginIcon.png" width="45px" height="45px" class = icons></a>
+        <a href ="/register">Sign Up <img src = "assets/signupIcon.png" width="40px" height="40px" class = icons></a>
+        <a href ="/aboutus">About Us <img src = "assets/aboutusIcon.png" width="40px" height="40px" class = icons></a>
+      </div>
+    </div>
+
+    <!---------------------------------------------End of Nav Pane ----------------------------------------------------------------->
+
+
+    <!--------------------------------------------- Start of Content for body ------------------------------------------------------->
+
+    <div class="mySlides">
+      <div class = "imgslide1" id = "slide1">  </div>
+      <div class = "imgslide2" id = "slide2"></div>
+      <div class = "imgslide3" id = "slide3"></div>
+    </div>
+
+    <div class = "allPrices">
+
+      <span class="border1"> </span>
+      <h2 class= "topic2"> <span id = "subTopic">INFO NOT AVAILABLE </span></h2> 
+      <span class="border2"> </span>
+
+      <a (click)="registerAlert()">
+        <div class="item1" id = "zoom">
+          <img src="assets/Items/beans.png" alt="Beans" class="image">
+          <div class="overlay">
+            <div class="text1">Beans</div>
+            <div class = "price" id = "beansPrice"> Not Available </div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item2 id = "zoom">
+          <img src="assets/Items/carrot.png" alt="Carrot" class="image">
+          <div class="overlay">
+            <div class="text1">Carrot </div>
+            <div class = "price" id = "carrotPrice"> Not Available </div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item3 id = "zoom">
+          <img src="assets/Items/leeks.png" alt="Leeks" class="image">
+          <div class="overlay">
+            <div class="text1">Leeks </div>
+            <div class = "price" id = "leeksPrice"> Not Available </div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item4 id = "zoom">
+          <img src="assets/Items/banana.jpg" alt="Banana" class="image">
+          <div class="overlay">
+            <div class="text1">Banana </div>
+            <div class = "price" id = "bananaPrice"> Not Available </div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item5 id = "zoom">
+          <img src="assets/Items/knolkhol.jpg" alt="Knolkhol" class="image">
+          <div class="overlay">  
+            <div class="text"> Knolkhol <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div> 
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item6 id = "zoom">
+          <img src="assets/Items/cabbage1.png" alt="Cabbage" class="image">
+          <div class="overlay">
+            <div class="text">Cabbage <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item7 id = "zoom">
+          <img src="assets/Items/tomato1.png" alt="Tomato" class="image">
+          <div class="overlay">
+            <div class="text">Tomato <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item8 id = "zoom">
+          <img src="assets/Items/ladiesfingers1.png" alt="Ladies Fingers" class="image">
+          <div class="overlay">
+            <div class="text">Ladies Fingers <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item9 id = "zoom">
+          <img src="assets/Items/brinjals1.png" alt="Brinjals" class="image">
+          <div class="overlay">
+            <div class="text">Brinjals <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item10 id = "zoom">
+          <img src="assets/Items/pumpkin.png" alt="Pumpkin" class="image">
+          <div class="overlay">
+            <div class="text">Pumpkin <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item11 id = "zoom">
+          <img src="assets/Items/cucumber.png" alt="Cucumber" class="image">
+          <div class="overlay">
+            <div class="text">Cucumber <br><br><span class = "message">Sign up for price</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item12 id = "zoom">
+          <img src="assets/Items/bittergourd1.png" alt="Bitter Gourd" class="image">
+          <div class="overlay">
+            <div class="text">Bitter Gourd <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item13 id = "zoom">
+          <img src="assets/Items/greenchilies.jpg" alt="Green Chilies" class="image">
+          <div class="overlay">
+            <div class="text">Green Chilies <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item14 id = "zoom">
+          <img src="assets/Items/beetroot1.png" alt="Beet Root" class="image">
+          <div class="overlay">
+            <div class="text">Beet Root <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item15 id = "zoom">
+          <img src="assets/Items/potato1.png" alt="Potato" class="image">
+          <div class="overlay">
+            <div class="text">Potato <br><br><span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item16 id = "zoom">
+          <img src="assets/Items/lime.jpg" alt="Lime" class="image">
+          <div class="overlay">
+            <div class="text">Lime <br><br><span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item17 id = "zoom">
+          <img src="assets/Items/papaya.png" alt="Papaya" class="image">
+          <div class="overlay">
+            <div class="text">Papaya <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item18 id = "zoom">
+          <img src="assets/Items/pineapple.jpg" alt="Pineapple" class="image">
+          <div class="overlay">
+            <div class="text">Pineapple <br><br><span class = "message"> Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+      <a (click)="registerAlert()">
+        <div class = item19 id = "zoom">
+          <img src="assets/Items/mango.jpg" alt="Mango" class="image">
+          <div class="overlay">
+            <div class="text">Mango <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+      
+      <a (click)="registerAlert()">
+        <div class = item20 id = "zoom">
+          <img src="assets/Items/avocado.jpg" alt="Avocado" class="image">
+          <div class="overlay">
+            <div class="text">Avocado <br><br> <span class = "message">Sign up for price </span></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+  <!--------------------------------------------- End of Content for body ------------------------------------------------------->
+
+
+  <!--------------------------------------------------- Footer Section ------------------------------------------------------------>
+
+    <footer class="footer"> 
+
+      <button class = "backToTop" (click) = "topFunction()"> Back to top</button>
+      
+      <div class = "middleSection">
+        <img src="assets/logo.png" class = "footerLogo" width="200px" height="200px">
+        <div class = "socialLinks">
+          <a href="https://www.google.com/gmail/" target="_blank"><img src = "assets\gmail.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.facebook.com/" target="_blank" ><img src = "assets\facebook.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.whatsapp.com/?lang=en" target="_blank"><img src = "assets\whatsapp.png" style="width: 30px;"></a>&nbsp;
+          <a href="https://www.instagram.com/accounts/login/" target="_blank"><img src = "assets\instagram.png" style="width: 30px;"></a>
+        </div>
+      </div>
+
+      <div class="accessLinks">
+        <h3>Get full access </h3>
+        <a href = "/register"> <img src = "assets\signupIcon.png" style="width: 30px; height: 35px; "> &nbsp;Sign up </a> <br><br>
+        <a href = "/login"> <img src = "assets\loginIcon.png" style="width: 30px; height: 35px; "> &nbsp;Login  </a> 
+      </div>
+       
+      <div class="categories">
+        <h3> Categories </h3> 
+        <a (click) = "registerAlert()">  <img src = "assets\dashboard.png" style="width: 30px; height: 35px;"> &nbsp;Dashboard </a> <br><br>
+        <a (click) = "registerAlert()">  <img src = "assets\vegetables.png" style="width: 30px; height: 35px;"> &nbsp;Vegetables  </a> <br><br>
+        <a (click) = "registerAlert()">  <img src = "assets\fruits.png" style="width: 30px; height: 35px;"> &nbsp;Fruits  </a> <br><br>
+        <a href ="/aboutus">   <img src = "assets\aboutus.png" style="width: 30px; height: 35px;"> &nbsp;About Us </a> 
+      </div>
+
+      <div class = "rightSection"> 
+        <h3 style="margin-left: 100px;">Contact us for any clarifications</h3>  
+          <div class = "contactLinks">
+            <img src = "assets\phone.png" style="width: 30px; height: 35px;"> &nbsp;&nbsp; <span style="font-weight: 500;">+94718914572 </span> <br><br>
+            <img src = "assets\address.png" style="width: 30px; height: 30px; margin-left:70px;"> &nbsp;&nbsp; <span style="font-weight: 500;">No. 57, Ramakrishna Rd,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 06 </span> <br><br>
+            <a href="https://www.google.com/maps/dir/6.9041507,79.925171/iit/@6.8866969,79.8578942,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae25ba4e617b3d9:0xd5a3b0418f1cf497!2m2!1d79.8598505!2d6.8652715" target="_blank"><img src = "assets\maps.png" style="width: 30px; margin-left:35px;"> &nbsp;&nbsp;Get Map Directions </a>
+          </div>
+      </div>
+      
+      <div class="copyright" style="background-color:#10110f9d ;">
+          © 2021 Copyright:
+          <a href ="/aboutus" style="color: white; text-decoration: none;">Team Sixers</a>
+      </div>
+    </footer>
+  </div>
+</div>

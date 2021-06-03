@@ -1,0 +1,223 @@
+<!--------------------------------------------- Start of Nav Pane ----------------------------------------------------------------->
+
+<div id = "page">
+
+  <span style="font-size:30px;cursor:pointer; color: white;" (click)="openNav()">&#9776; </span>
+
+  <div class = "upperBar">
+    <h2 class="topic">Fruits</h2>
+
+    <a  class = "logged" (click) = "logout()">Log out </a>
+
+    <div class = "loggedIcon">
+      <h2 style="color: white;" id = "userIcon"> G </h2>
+      <span class="tooltiptext" id ="tooltip">Tooltip text</span>
+    </div>
+    
+  </div>
+
+
+  <div id="mySidenav" class="sidenav">
+    <img src="assets/logo.png" class = "logo" width="210px" height="210px">
+    <a class="closebtn" (click)="closeNav()"><img src = "assets/closeBlack.png" width="40px" height="40px"></a>
+    <div class = "sideNavlinks">
+      <a href ="/home">Dashboard <img src = "assets/dashboardIcon.png" width="40px" height="40px" class = icons></a>
+      <a href="/fruits">Fruits <img src = "assets/bananas.png" width="45px" height="30px" class = icons></a>
+      <a href="/vegetables">Vegetables<img src = "assets/cabbage.png" width="40px" height="30px" class = icons></a>
+      <a (click) = "loginNav()">Login <img src = "assets/loginIcon.png" width="45px" height="45px" class = icons></a>
+      <a (click) = "signupNav()">Sign Up <img src = "assets/signupIcon.png" width="40px" height="40px" class = icons></a>
+      <a href="/aboutus">About Us <img src = "assets/aboutusIcon.png" width="40px" height="40px" class = icons></a>
+    </div>
+  </div>
+
+
+  <!--------------------------------------------- End of Nav Pane ----------------------------------------------------------------->
+ 
+
+  <!----------------------------------------------- Start of body ---------------------------------------------------------------------->
+
+  <div class="mySlides">
+    <div class = "imgslide1" id = "slide1"></div>
+    <div class = "imgslide2" id = "slide2"></div>
+    <div class = "imgslide3" id = "slide3"></div>
+  </div>
+
+  <div class = "charts">
+
+    <span class="chartTopicBorder1"> </span>
+      <h2 class = "chartTopic"> Predicted Price Updates </h2>
+      <span class="chartTopicBorder2"> </span>
+
+    <div class = "divChart1">
+      <h3 id = "chartDes1">Data Not Available</h3> 
+      <canvas id = "myChart1"></canvas>
+    </div>
+
+    <div class = "divChart2">
+      <h3 id = "chartDes2">Data Not Available</h3>
+      <canvas id = "myChart2"></canvas>
+    </div>
+
+    <div class = "divChart3">
+      <h3 id = "chartDes3">Data Not Available</h3>
+      <canvas id = "myChart3"></canvas>
+    </div>
+  </div>
+
+
+  <div class="block">
+
+    <span class="border1"> </span>  
+      <h2 class= "topic2"  id = "subTopic">INFO NOT AVAILABLE </h2>
+    <!-- <span class="border2"> </span> -->
+
+    <a href = "/lowest"><div class = "cheapestItemLink">View Cheapest Items</div></a>
+
+    <div class = "priceSelection">
+      <select name="cars" id="cars" class = "selection" id ="selection" (change) = "priceChange($event.target.value)">
+        <option value="today">Today Price</option>
+        <option value="tommorrow">Tommorrow Price</option>
+        <option value="nextWeek">Next Week Price</option>
+      </select>
+    </div>
+
+
+    <div class="cards" id = "card1">
+      <div class="image">
+          <img src="assets/Items/banana.jpg">
+      </div>
+
+      <div class="title">
+        <h1>Banana</h1>
+      </div>
+
+      <div class="price">
+        <p id = "banana">Not Available</p>
+      </div>
+    </div>
+
+      
+    <div class="cards" id = "card2">
+      <div class="image2">
+        <img src="assets/Items/papaya.png">
+      </div>
+
+      <div class="title">
+        <h1>Papaya</h1>
+      </div>
+
+      <div class="price">
+        <p id = "papaya">Not Available</p>
+      </div>
+    </div>
+
+      
+    <div class="cards" id = "card3">
+      <div class="image3">
+        <img src="assets/Items/avocado.jpg">
+      </div>
+
+      <div class="title">
+        <h1>Avocado</h1>
+      </div>
+
+      <div class="price">
+        <p id = "avocado">Not Available</p>
+      </div>
+    </div>
+
+          
+    <div class="cards" id = "card4">
+      <div class="image4">
+        <img src="assets/Items/mango.jpg">
+      </div>
+
+      <div class="title">
+        <h1>Mango</h1>
+      </div>
+
+      <div class="price">
+        <p id = "mango">Not Available</p>
+      </div>
+    </div>
+
+      
+    <div class="cards" id = "card5">
+      <div class="image5">
+        <img src="assets/Items/lime.jpg">
+      </div>
+          
+      <div class="title">
+        <h1>Lime</h1>
+      </div>
+
+      <div class="price">
+        <p id = "lime">Not Available</p>
+      </div>
+    </div>
+
+      
+    <div class="cards" id = "card6">
+      <div class="image6">
+        <img src="assets/Items/pineapple.jpg">
+      </div>      
+
+      <div class="title">
+        <h1>Pineapple</h1>
+      </div>
+
+      <div class="price">
+        <p id = "pineapple">Not Available</p>
+      </div>
+    </div>
+  </div>
+
+  <!----------------------------------------------- End of body ---------------------------------------------------------------------->
+
+
+  <!--------------------------------------------------- Footer Section ------------------------------------------------------------>
+
+  <footer class="footer"> 
+
+    <button class = "backToTop" (click) = "topFunction()"> Back to top</button>
+    
+    <div class = "middleSection">
+      <img src="assets/logo.png" class = "footerLogo" width="200px" height="200px">
+      <div class = "socialLinks">
+        <a href="https://www.google.com/gmail/" target="_blank"><img src = "assets\gmail.png" style="width: 30px; height: 30px;"></a> &nbsp;
+        <a href="https://www.facebook.com/" target="_blank"><img src = "assets\facebook.png" style="width: 30px; height: 30px;"></a> &nbsp;
+        <a href="https://www.whatsapp.com/?lang=en" target="_blank"><img src = "assets\whatsapp.png" style="width: 30px;"></a>&nbsp;
+        <a href="https://www.instagram.com/accounts/login/" target="_blank"><img src = "assets\instagram.png" style="width: 30px;"></a>
+      </div>
+    </div>
+
+    <div class="accessLinks">
+      <h3>Get full access </h3>
+      <a (click) = "signupNav()"> <img src = "assets\signupIcon.png" style="width: 30px; height: 35px; color: black; "> &nbsp;Sign up </a> <br><br>
+      <a (click) = "loginNav()"> <img src = "assets\loginIcon.png" style="width: 30px; height: 35px;  color: black;"> &nbsp;Login  </a> 
+    </div>
+    
+    <div class="categories">
+      <h3> Categories </h3> 
+      <a href="/home">  <img src = "assets\dashboard.png" style="width: 30px; height: 35px;"> &nbsp;Dashboard </a> <br><br>
+      <a href="/vegetables">  <img src = "assets\vegetables.png" style="width: 30px; height: 35px;"> &nbsp;Vegetables  </a> <br><br>
+      <a href="/fruits">  <img src = "assets\fruits.png" style="width: 30px; height: 35px;"> &nbsp;Fruits  </a> <br><br>
+      <a href="/aboutus">   <img src = "assets\aboutus.png" style="width: 30px; height: 35px;"> &nbsp;About Us </a> 
+    </div>
+
+    <div class = "rightSection"> 
+      <h3 style="margin-left: 100px;">Contact us for any clarifications</h3>  
+        <div class = "contactLinks">
+          <img src = "assets\phone.png" style="width: 30px; height: 35px;"> &nbsp;&nbsp; <span style="font-weight: 500;">+94718914572 </span> <br><br>
+          <img src = "assets\address.png" style="width: 30px; height: 30px; margin-left:70px;"> &nbsp;&nbsp; <span style="font-weight: 500;">No. 57, Ramakrishna Rd,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 06 </span> <br><br>
+          <a href="https://www.google.com/maps/dir/6.9041507,79.925171/iit/@6.8866969,79.8578942,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae25ba4e617b3d9:0xd5a3b0418f1cf497!2m2!1d79.8598505!2d6.8652715" target="_blank"><img src = "assets\maps.png" style="width: 30px; margin-left:35px;"> &nbsp;&nbsp;Get Map Directions </a>
+        </div>
+    </div>
+
+    <div class="copyright" style="background-color:#10110f9d ;">
+        © 2021 Copyright:
+        <a href="aboutus" style="color: white; text-decoration: none;">Team Sixers</a>
+    </div>
+    
+  </footer>
+</div>

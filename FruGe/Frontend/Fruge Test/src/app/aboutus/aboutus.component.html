@@ -1,0 +1,166 @@
+<div id = "page">
+
+  <!--------------------------------------------- Start of Nav Pane ----------------------------------------------------------------->
+
+  <div id = "body">
+    <span style="font-size:30px;cursor:pointer; color: white;" (click)="openNav()">&#9776; </span>
+
+    <div class = "upperBar">
+      <h2 class="topic">About Us</h2>
+     
+        <a  class = "logged" id = "logoutText" (click) = "logout()">Log out </a>
+        <a href = "/login" class = "logged" id = "loginText" style="visibility: hidden;">Log in </a>
+        <a href = "/register" class = "signed" id = "signupText" style="visibility: hidden;">Sign up </a>
+
+        <div class = "loggedIcon">
+          <h2 style="color: white;" id = "userIcon"> G </h2>
+          <span class="tooltiptext" id ="tooltip">Tooltip text</span>
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <img src="assets/logo.png" class = "logo" width="210px" height="210px">
+      <a class="closebtn" (click)="closeNav()"><img src = "assets/closeBlack.png" width="40px" height="40px"></a>
+      <div class = "sideNavlinks">
+        <a (click) = "homeNav()">Dashboard <img src = "assets/dashboardIcon.png" width="40px" height="40px" class = icons></a>
+        <a (click) = "fruitNav()">Fruits <img src = "assets/bananas.png" width="45px" height="30px" class = icons></a>
+        <a (click) = "vegeNav()">Vegetables<img src = "assets/cabbage.png" width="40px" height="30px" class = icons></a>
+        <a (click) = "loginNav()">Login <img src = "assets/loginIcon.png" width="45px" height="45px" class = icons></a>
+        <a (click) = "signupNav()">Sign Up <img src = "assets/signupIcon.png" width="40px" height="40px" class = icons></a>
+        <a href="/aboutus">About Us <img src = "assets/aboutusIcon.png" width="40px" height="40px" class = icons></a>
+      </div>
+    </div>
+
+    <!---------------------------------------------End of Nav Pane ----------------------------------------------------------------->
+
+
+    <!--------------------------------------------- Start of Content for body ------------------------------------------------------->
+
+
+  <div class="row">
+      
+      <div class=descdiv>
+        <p class=descone>
+      Fruits and Vegetables are the main need of day-to-day life of humans. As food is a basic need of humans the fruits and vegetables play a major role in the food need. In present day customers usually go to a supermarket, a weekly fair or another shop to fully fill their fruits and vegetable needs. As the majority goes to the supermarket the current system has given them a lot of problems regarding the prices of fruits and Vegetables. 
+        <br><br>
+        The large problem is the un-awareness of the customers about the prices of fruits and vegetables. Many customers face problems when they go to a shop to buy fruits and vegetables without knowing the prices or without making a budget for their next week’s fruits and vegetables. In this sector there are many applications to check the current price of fruits, but there aren’t many applications to check the predicted price of fruits and vegetables before customers go to the supermarket. 
+        <br><br>
+        The suggested solution FruGe, is a system with a full dashboard and an interactive website to explore and analyze the past prices of fruits, vegetables and predict and maintain the future price of fruits and vegetables and present this procedure in a user-friendly way for the customers and users
+      <br><br><br><br>
+    </p>
+      </div> 
+  </div>
+
+
+<div class="wrapper">
+  <h1>Our Team</h1>
+  <div class="team">
+    
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Kavindu.jpg" alt="Team_image">
+      </div>
+      <h3>Kavindu Hettiarachchi</h3>
+      <p class="role">Front-End Developer</p>
+      <p>Kavindu is currently doing his Bachelors in Software Engineering field. He has done the Front-End Part in this project. He’s also good in Front-End designing areas.<br>
+        <br> <strong>Contact – kavindu.20191098@iit.ac.lk </strong></p>
+    </div>
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Nimesh.jpeg" alt="Team_image">
+      </div>
+      <h3>Nimesh Alawatta</h3>
+      <p class="role">Back-End Developer</p>
+      <p>Nimesh is also a Back- End Developer in fruge prediction team. He’s also an Undergraduate student who is doing Software Engineering for his bachelors. He’s good in Back End developing areas. <br>
+        <br> <Strong>Contact - nimesh.2019080@iit.ac.lk </Strong></p></div>
+
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Mahesh.jpeg" alt="Team_image">
+      </div>
+      <h3>Mahesha Piyumantha</h3>
+      <p class="role">Front-End Developer</p>
+      <p>Mahesha is the Team Leader who guided all five members to complete this project successfully. He’s also an undergraduate student in Software Engineering. He’s good in Front-End and Designing parts. <br>
+       <br><strong> Contact - mahesha.2019355@iit.ac.lk </strong></p>
+    </div>
+  
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Avishka.jpg" alt="Team_image">
+      </div>
+      <h3>Avishka Jayawardhana</h3>
+      <p class="role">Data Model Developer</p>
+      <p>Avishka is the main Data Model Developer in Fruge Prediction Team. He’s also an undergraduate student in Software Engineering field.  He has trained the model as well. He has predicted the prices using Arima model. He’s good in Machine Learning sections. <br>
+        <br> <strong>Contact - avishka.2019344@iit.ac.lk </strong></p></div>
+    
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Thisun.jpg" alt="Team_image">
+      </div>
+      <h3>Thisun Bandara</h3>
+      <p class="role">Front-End Developer</p>
+      <p>Thisun has worked as a Front-End Developer in this project and He’s currently doing his Software Engineering Bachelors at University of Westminster. He’s good in Front-End and Designing sections. <br>
+        <br> <strong>Contact - thisun.2019356@iit.ac.lk </strong></p></div>
+    
+    <div class="team_member">
+      <div class="team_img">
+        <img src="assets/Member Pics/Shalitha.jpg" alt="Team_image">
+      </div>
+      <h3>Shalitha Praveen</h3>
+      <p class="role">Back-End Developer</p>
+      <p>Shalitha is currently doing his bachelors in Computer Science field. He has worked as a Back-End Developer in Fruge prediction Team. He’s good in Back-End developing areas. <br>
+        <br> <strong>Contact - shalitha.2019364@iit.ac.lk </strong></p></div>
+  </div>
+</div>	
+
+
+
+  <!--------------------------------------------- End of Content for body ------------------------------------------------------->
+
+
+  <!--------------------------------------------------- Footer Section ------------------------------------------------------------>
+
+    <footer class="footer"> 
+
+      <button class = "backToTop" (click) = "topFunction()"> Back to top</button>
+      
+      <div class = "middleSection">
+        <img src="assets/logo.png" class = "footerLogo" width="200px" height="200px">
+        <div class = "socialLinks">
+          <a href="https://www.google.com/gmail/" target="_blank"><img src = "assets\gmail.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.facebook.com/" target="_blank"><img src = "assets\facebook.png" style="width: 30px; height: 30px;"></a> &nbsp;
+          <a href="https://www.whatsapp.com/?lang=en" target="_blank"><img src = "assets\whatsapp.png" style="width: 30px;"></a>&nbsp;
+          <a href="https://www.instagram.com/accounts/login/" target="_blank"><img src = "assets\instagram.png" style="width: 30px;"></a>
+        </div>
+      </div>
+
+      <div class="accessLinks">
+        <h3>Get full access </h3>
+        <a (click) = "signupNav()"> <img src = "assets\signupIcon.png" style="width: 30px; height: 35px; color: black; "> &nbsp;Sign up </a> <br><br>
+        <a (click) = "loginNav()"> <img src = "assets\loginIcon.png" style="width: 30px; height: 35px;  color: black;"> &nbsp;Login  </a> 
+      </div>
+      
+      <div class="categories">
+        <h3> Categories </h3> 
+        <a (click) = "homeNav()">  <img src = "assets\dashboard.png" style="width: 30px; height: 35px;"> &nbsp;Dashboard </a> <br><br>
+        <a (click) = "vegeNav()">  <img src = "assets\vegetables.png" style="width: 30px; height: 35px;"> &nbsp;Vegetables  </a> <br><br>
+        <a (click) = "fruitNav()">  <img src = "assets\fruits.png" style="width: 30px; height: 35px;"> &nbsp;Fruits  </a> <br><br>
+        <a href="/aboutus">   <img src = "assets\aboutus.png" style="width: 30px; height: 35px;"> &nbsp;About Us </a> 
+      </div>
+
+      <div class = "rightSection"> 
+        <h3 style="margin-left: 100px;">Contact us for any clarifications</h3>  
+          <div class = "contactLinks">
+            <img src = "assets\phone.png" style="width: 30px; height: 35px;"> &nbsp;&nbsp; <span style="font-weight: 500;">+94718914572 </span> <br><br>
+            <img src = "assets\address.png" style="width: 30px; height: 30px; margin-left:70px;"> &nbsp;&nbsp; <span style="font-weight: 500;">No. 57, Ramakrishna Rd,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colombo 06 </span> <br><br>
+            <a href="https://www.google.com/maps/dir/6.9041507,79.925171/iit/@6.8866969,79.8578942,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae25ba4e617b3d9:0xd5a3b0418f1cf497!2m2!1d79.8598505!2d6.8652715" target="_blank"><img src = "assets\maps.png" style="width: 30px; margin-left:35px;"> &nbsp;&nbsp;Get Map Directions </a>
+          </div>
+      </div>
+
+      <div class="copyright" style="background-color:#10110f9d ;">
+          © 2021 Copyright:
+          <a href="/aboutus" style="color: white; text-decoration: none;">Team Sixers</a>
+      </div>
+    </footer>
+  </div>
+</div>
