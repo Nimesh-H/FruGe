@@ -1,0 +1,598 @@
+import pandas
+from datetime import datetime, timedelta
+from pymongo.errors import DuplicateKeyError
+from sklearn.linear_model import Lasso
+import pymongo
+import time
+
+mongo_uri = "mongodb+srv://fruge:frugedatabase@frugedatabase.4krmx.mongodb.net/test"
+client = pymongo.MongoClient(mongo_uri)
+db = client.Fruge
+data = pandas.read_excel('prices.xlsx')
+print(data)
+
+date = datetime.today()
+
+date1 = int(datetime.today().strftime('%Y%m%d'))
+
+date2 = datetime.today()
+td = timedelta(days=1)
+date2 = date2 + td
+date2 = int(date2.strftime('%Y%m%d'))
+
+date3 = datetime.today()
+td = timedelta(days=2)
+date3 = date3 + td
+date3 = int(date3.strftime('%Y%m%d'))
+
+date4 = datetime.today()
+td = timedelta(days=3)
+date4 = date4 + td
+date4 = int(date4.strftime('%Y%m%d'))
+
+date5 = datetime.today()
+td = timedelta(days=4)
+date5 = date5 + td
+date5 = int(date5.strftime('%Y%m%d'))
+
+date6 = datetime.today()
+td = timedelta(days=5)
+date6 = date6 + td
+date6 = int(date6.strftime('%Y%m%d'))
+
+weekCalculator = datetime.today()
+td = timedelta(days=6)
+weekCalculator = weekCalculator + td
+weekCalculator = str(weekCalculator.strftime('%Y-%m-%d'))
+
+model = Lasso(alpha=1.0)
+week_price = []
+
+
+def predict_for_week():
+    predicted_price1 = model.predict([[date1]])
+    predicted_price2 = model.predict([[date2]])
+    predicted_price3 = model.predict([[date3]])
+    predicted_price4 = model.predict([[date4]])
+    predicted_price5 = model.predict([[date5]])
+    predicted_price6 = model.predict([[date6]])
+
+    week_predicted_price = (predicted_price1 + predicted_price2 + predicted_price3 + predicted_price4
+                            + predicted_price5 + predicted_price6) / 6
+
+    week_predicted_price = float(week_predicted_price)
+    week_predicted_price = "{:.2f}".format(week_predicted_price)
+    return week_predicted_price
+
+
+def predict_bean():
+    model.fit(data[['Day']], data[['Beans']])
+    week_predicted_price = predict_for_week()
+
+    print("Bean price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator, " is ",
+          week_predicted_price, " Rupees")
+
+    bean_price = {
+        "name": "Beans",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 1
+    }
+    try:
+        collection.insert_one(bean_price)
+        print("Bean data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Bean data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_carrot():
+    model.fit(data[['Day']], data[['Carrot']])
+    week_predicted_price = predict_for_week()
+
+    print("Carrot price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator, " is ",
+          week_predicted_price, " Rupees")
+
+    carrot_price = {
+        "name": "Carrot",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 2
+    }
+
+    try:
+        collection.insert_one(carrot_price)
+        print("Carrot data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+
+    except DuplicateKeyError:
+        print("Carrot data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_leeks():
+    week_predicted_price = predict_for_week()
+
+    print("Leeks price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    leeks_price = {
+        "name": "Leeks",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 3
+    }
+
+    try:
+        collection.insert_one(leeks_price)
+        print("Leeks data inserted for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Leeks data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_beetroot():
+    model.fit(data[['Day']], data[['Beet root']])
+    week_predicted_price = predict_for_week()
+
+    print("Beet root price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    carrot_price = {
+        "name": "Beet root",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 4
+    }
+
+    try:
+        collection.insert_one(carrot_price)
+        print("Beet root data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Beet root data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_knolkhol():
+    model.fit(data[['Day']], data[['Knolkhol']])
+    week_predicted_price = predict_for_week()
+
+    print("Knolkhol price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    knolkhol_price = {
+        "name": "Knolkhol",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 5
+    }
+
+    try:
+        collection.insert_one(knolkhol_price)
+        print("Knolkhol data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Knolkhol data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_cabbage():
+    model.fit(data[['Day']], data[['Cabbage']])
+    week_predicted_price = predict_for_week()
+
+    print("Cabbage price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    cabbage_price = {
+        "name": "Cabbage",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 6
+    }
+
+    try:
+        collection.insert_one(cabbage_price)
+        print("Cabbage data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+
+    except DuplicateKeyError:
+        print("Cabbage data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_tomato():
+    model.fit(data[['Day']], data[['Tomato']])
+    week_predicted_price = predict_for_week()
+
+    print("Tomato price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    tomato_price = {
+        "name": "Tomato",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 7
+    }
+
+    try:
+        collection.insert_one(tomato_price)
+        print("Tomato data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Tomato data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_ladies_fingers():
+    model.fit(data[['Day']], data[['Ladies Fingers']])
+    week_predicted_price = predict_for_week()
+
+    print("Ladies Fingers price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    ladies_fingers_price = {
+        "name": "Ladies Fingers",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 8
+    }
+
+    try:
+        collection.insert_one(ladies_fingers_price)
+        print("Ladies Fingers data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+
+    except DuplicateKeyError:
+        print("Ladies Fingers data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_brinjals():
+    model.fit(data[['Day']], data[['Brinjals']])
+    week_predicted_price = predict_for_week()
+
+    print("Brinjals price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    brinjals_price = {
+        "name": "Brinjals",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 9
+    }
+
+    try:
+        collection.insert_one(brinjals_price)
+        print("Brinjals data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Brinjals data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_pumpkin():
+    model.fit(data[['Day']], data[['Pumpkin']])
+    week_predicted_price = predict_for_week()
+    print("Pumpkin price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    pumpkin_price = {
+        "name": "Pumpkin",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 10
+    }
+
+    try:
+        collection.insert_one(pumpkin_price)
+        print("Pumpkin data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Pumpkin data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_cucumber():
+    model.fit(data[['Day']], data[['Cucumber']])
+    week_predicted_price = predict_for_week()
+
+    print("Cucumber price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    cucumber_price = {
+        "name": "Cucumber",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 11
+    }
+
+    try:
+        collection.insert_one(cucumber_price)
+        print("Cucumber data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Cucumber data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_bitter_gourd():
+    model.fit(data[['Day']], data[['Bitter Gourd']])
+    week_predicted_price = predict_for_week()
+
+    print("Bitter Gourd price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    bitter_gourd_price = {
+        "name": "Bitter Gourd",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 12
+    }
+
+    try:
+        collection.insert_one(bitter_gourd_price)
+        print("Bitter Gourd data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Bitter Gourd data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_green_chillies():
+    model.fit(data[['Day']], data[['Green Chillies']])
+    week_predicted_price = predict_for_week()
+
+    print("Green Chillies price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    green_chillies_price = {
+        "name": "Green Chillies",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 13
+    }
+
+    try:
+        collection.insert_one(green_chillies_price)
+        print("Green Chillies data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Green Chillies data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_lime():
+    model.fit(data[['Day']], data[['Lime']])
+    week_predicted_price = predict_for_week()
+
+    print("Lime price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    lime_price = {
+        "name": "Lime",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 14
+    }
+
+    try:
+        collection.insert_one(lime_price)
+        print("Lime data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Lime data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_potato():
+    model.fit(data[['Day']], data[['Potato']])
+    week_predicted_price = predict_for_week()
+
+    print("Potato price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    potato_price = {
+        "name": "Potato",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 15
+    }
+
+    try:
+        collection.insert_one(potato_price)
+        print("Potato data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Potato data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_banana():
+    model.fit(data[['Day']], data[['Banana']])
+    week_predicted_price = predict_for_week()
+
+    print("Banana price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    banana_price = {
+        "name": "Banana",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 16
+    }
+
+    try:
+        collection.insert_one(banana_price)
+        print("Banana data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Banana data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_papaya():
+    model.fit(data[['Day']], data[['Papaya']])
+    week_predicted_price = predict_for_week()
+
+    print("Papaya price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    papaya_price = {
+        "name": "Papaya",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 17
+    }
+
+    try:
+        collection.insert_one(papaya_price)
+        print("Papaya data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Papaya data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_pineapple():
+    model.fit(data[['Day']], data[['Pineapple']])
+    week_predicted_price = predict_for_week()
+
+    print("Pineapple price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    pineapple_price = {
+        "name": "Pineapple",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 18
+    }
+
+    try:
+        collection.insert_one(pineapple_price)
+        print("Pineapple data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Pineapple data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_mango():
+    model.fit(data[['Day']], data[['Mango']])
+    week_predicted_price = predict_for_week()
+
+    print("Mango price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    mango_price = {
+        "name": "Mango",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 19
+    }
+
+    try:
+        collection.insert_one(mango_price)
+        print("Mango data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Mango data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+def predict_avocado():
+    model.fit(data[['Day']], data[['Avocado']])
+    week_predicted_price = predict_for_week()
+
+    print("Avocado price for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+          " is ", week_predicted_price, " Rupees")
+
+    avocado_price = {
+        "name": "Avocado",
+        "price": week_predicted_price,
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "_id": 20
+    }
+
+    try:
+        collection.insert_one(avocado_price)
+        print("Avocado data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " inserted to mongodb successfully\n")
+    except DuplicateKeyError:
+        print("Avocado data for ", datetime.today().strftime('%Y-%m-%d'), " to ", weekCalculator,
+              " already available in mongodb\n")
+
+
+while True:
+
+    weekDays = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+    date = date.weekday()
+    dateString = weekDays[date]
+
+    if dateString == "Sunday":
+        collection = db[str(date1)]
+        predict_bean()
+        predict_carrot()
+        predict_leeks()
+        predict_beetroot()
+        predict_knolkhol()
+        predict_cabbage()
+        predict_tomato()
+        predict_ladies_fingers()
+        predict_brinjals()
+        predict_pumpkin()
+        predict_cucumber()
+        predict_bitter_gourd()
+        predict_green_chillies()
+        predict_lime()
+        predict_potato()
+        predict_banana()
+        predict_papaya()
+        predict_pineapple()
+        predict_mango()
+        predict_avocado()
+
+    print("Checking for updates.....")
+
+    while date1 == int(datetime.today().strftime('%Y%m%d')):
+        time.sleep(0)
+
+    date = datetime.today()
+
+    date1 = int(datetime.today().strftime('%Y%m%d'))
+
+    date2 = datetime.today()
+    td = timedelta(days=1)
+    date2 = date2 + td
+    date2 = int(date2.strftime('%Y%m%d'))
+
+    date3 = datetime.today()
+    td = timedelta(days=2)
+    date3 = date3 + td
+    date3 = int(date3.strftime('%Y%m%d'))
+
+    date4 = datetime.today()
+    td = timedelta(days=3)
+    date4 = date4 + td
+    date4 = int(date4.strftime('%Y%m%d'))
+
+    date5 = datetime.today()
+    td = timedelta(days=4)
+    date5 = date5 + td
+    date5 = int(date5.strftime('%Y%m%d'))
+
+    date6 = datetime.today()
+    td = timedelta(days=5)
+    date6 = date6 + td
+    date6 = int(date6.strftime('%Y%m%d'))
+
+    weekCalculator = datetime.today()
+    td = timedelta(days=6)
+    weekCalculator = weekCalculator + td
+    weekCalculator = str(weekCalculator.strftime('%Y-%m-%d'))
+
+    print("Date Updated to ", datetime.today().strftime('%Y-%m-%d'), "\n")
+    continue
